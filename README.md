@@ -1,7 +1,7 @@
 #PEA-data-tools
 Tools for working with PEA data!
 
-##Info
+##Info:
 The purpose of these tools is to make PEA data more accessible for student developers; to facilitate students in creating applications useful and relevant to the PEA community.
 
 These tools organize and make public data more accessible for student developers; all of the information gathered by PEA-data-tools can be found on official Academy websites under ordinary usage.
