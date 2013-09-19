@@ -6,9 +6,8 @@ The purpose of these tools is to make PEA data more accessible for student devel
 
 These tools organize and make public data more accessible for student developers; all of the information gathered by PEA-data-tools can be found on official Academy websites under ordinary usage.
 
-####Currently implemented:
- - python module for easy retrieval of Exeter Connect user data
- 	For now, check out the examples and read the code to learn how to use the python module
+##Currently implemented:
+ - python module for easy retrieval of Exeter Connect user data. For now, check out the examples and read the code to learn how to use the python module
 
 #Goals:
  - api for python
@@ -19,7 +18,7 @@ These tools organize and make public data more accessible for student developers
 
 #TODO
  - implement examples
- - "update" methods in connect.py to get json from ecc.exeter.edu. Create "download" methods for actual scraping straight from the connect.exeter.edu
+ - change "update" methods in connect.py to get json from ecc.exeter.edu. Create "download" methods for actual scraping straight from the connect.exeter.edu
  - write python documentation
  - write browser/node javascript module for working with user data (note: create a git subfolder)
  - Communicate with IT about this

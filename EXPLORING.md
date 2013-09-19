@@ -1,4 +1,4 @@
-Here are some pointers to exploring Academy resources for development on PEA-data-tools.
+Here are some pointers to useful Academy resources for development on PEA-data-tools:
 
 #Exeter Connect
 Exeter Connect is PEA's implementation of Microsoft SharePoint 2010.
@@ -13,17 +13,10 @@ Upon login on connect.exeter.edu, your browser makes multiple SOAP calls to Conn
 
 
 ###Places to poke/use
-**useful**
-<https://connect.exeter.edu/_vti_bin/userprofileservice.asmx>
-<https://connect.exeter.edu/_vti_bin/usergroup.asmx>
-<https://connect.exeter.edu/_vti_bin/Authentication.asmx>
-<https://connect.exeter.edu/_vti_bin/search.asmx>
-
-**potentially useful**
-<https://connect.exeter.edu/_vti_bin/sites.asmx>
-<https://connect.exeter.edu/_vti_bin/imaging.asmx>
-<https://connect.exeter.edu/_vti_bin/sharepointemailws.asmx>
-<https://connect.exeter.edu/_vti_bin/views.asmx>
+ - <https://connect.exeter.edu/_vti_bin/userprofileservice.asmx>
+ - <https://connect.exeter.edu/_vti_bin/usergroup.asmx>
+ - <https://connect.exeter.edu/_vti_bin/Authentication.asmx>
+ - <https://connect.exeter.edu/_vti_bin/search.asmx>
 
 #Calendar
 
