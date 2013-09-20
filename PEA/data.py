@@ -7,7 +7,7 @@ import json
 uname = ""
 pword = ""
 
-usercollection_path = './data/raw/user_collection.json'
+usercollection_path = './data/user_collection.json'
 def _authenticate():
 	global uname, pword
 	if not uname:
