@@ -1,5 +1,6 @@
-from PEA import data
+from .. import data
 import json
+#updates local copies of data
 
 def confirm(prompt):
 	ans = raw_input(prompt)
@@ -12,7 +13,7 @@ def updateAll():
 	print(':: updating basic info...')
 	data.updateBasicInfo()
 	print(':: updating detailed info...')
-	#data.updateDetailedInfo()
+	data.updateDetailedInfo()
 	print(':: update complete!')
 
 if __name__ == '__main__':
