@@ -8,12 +8,15 @@ def confirm(prompt):
 	if not ans in valid:
 		exit()
 def updateAll():
-	print(':: updating raw collection of users...')
-	data.updateRawUserCollection()
-	print(':: updating basic info...')
-	data.updateBasicInfo()
-	print(':: updating detailed info...')
-	data.updateDetailedInfo()
+	print(':: updating raw user data...')
+	data.updateRawUserData()
+	print(':: updating basic user data...')
+	data.updateBasicUserData()
+	print(':: updating detailed user data...')
+	data.updateDetailedUserData()
+	print(':: updating class data...')
+	data.updateClassData()
+
 	print(':: update complete!')
 
 if __name__ == '__main__':

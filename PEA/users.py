@@ -8,7 +8,7 @@ one argument       : return single profile
 multiple arguments : return partial list of profiles
 """
 
-by_username = data.getDetailedInfo()
+by_username = data.getDetailedUserData()
 def byUsername(*args):
 	if len(args) == 0:
 		return deepcopy(by_username)
@@ -22,6 +22,7 @@ def byUsername(*args):
 			except:
 				pass
 		return output
+
 
 
 by_employeeid = dict((v['employeeID'],v) for k,v in by_username.iteritems())

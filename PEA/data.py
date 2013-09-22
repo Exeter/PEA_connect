@@ -1,13 +1,17 @@
 from . import connect
 from getpass import getpass
 import sys
+import re
+import string
 import json
+
+#Everything concerned about data generation/retrieval
 
 
 uname = ""
 pword = ""
 
-usercollection_path = './data/user_collection.json'
+rawuserdata_path = './data/raw_user_data.json'
 def _authenticate():
 	global uname, pword
 	if not uname:
@@ -15,24 +19,24 @@ def _authenticate():
 		uname = raw_input('Username: ') + '@exeter.edu'
 		pword = getpass()
 		
-def updateRawUserCollection():
+def updateRawUserData():
 	_authenticate()
 
 	UserGroup = connect.getclient('https://connect.exeter.edu/_vti_bin/usergroup.asmx?WSDL', uname, pword)
 	output = json.dumps(connect.to_dict(UserGroup.service.GetAllUserCollectionFromWeb()), indent=4, sort_keys=True)
 
-	f = open(usercollection_path, 'w')
+	f = open(rawuserdata_path, 'w')
 	f.write(output)
 	f.close()
-def getRawUserCollection():
-	f = open(usercollection_path,'r')
+def getRawUserData():
+	f = open(rawuserdata_path, 'r')
 	return json.loads(f.read())
 
 # Basic info
-basicinfo_path = './data/basicinfo.json'
+basicuserdata_path = './data/basic_user_data.json'
 notpeople = ['spsearchservice', 'spsearchcontent', 'spsetup', 'spcachesuper', 'spreader']
-def updateBasicInfo():
-	raw = getRawUserCollection()
+def updateBasicUserData():
+	raw = getRawUserData()
 	output = {}
 	for user in raw['GetAllUserCollectionFromWeb']['Users']['User']:
 		u = {}
@@ -51,16 +55,16 @@ def updateBasicInfo():
 		u['username'] = username
 
 		output[username] = u
-	g = open(basicinfo_path, 'w')
+	g = open(basicuserdata_path, 'w')
 	g.write(json.dumps(output, indent=4, sort_keys=True))
 	g.close()
-def getBasicInfo():
-	f = open(basicinfo_path, 'r')
+def getBasicUserData():
+	f = open(basicuserdata_path, 'r')
 	return json.loads(f.read())
 
 # Detailed info
-detailedinfo_path = './data/detailedinfo.json'
-def updateDetailedInfo():
+detaileduserdata_path = './data/detailed_user_data.json'
+def updateDetailedUserData():
 	_authenticate()
 
 	UserProfileService = connect.getclient('https://connect.exeter.edu/student/_vti_bin/UserProfileService.asmx?WSDL', uname, pword)
@@ -96,9 +100,50 @@ def updateDetailedInfo():
 			pass
 		counter += 1
 	
-	g = open(detailedinfo_path, 'w')
+	g = open(detaileduserdata_path, 'w')
 	g.write(json.dumps(output, indent=4, sort_keys=True))
 	g.close()
-def getDetailedInfo():
-	f = open(detailedinfo_path, 'r')
+def getDetailedUserData():
+	f = open(detaileduserdata_path, 'r')
 	return json.loads(f.read())
+
+# Classes
+classdata_path = './data/classdata.json'
+def updateClassData():
+	people = getDetailedUserData()
+	students = dict((k, v) for k, v in people.items() if 'SourceCode' in v.keys() and "ST" in v['SourceCode'].split(','))
+	teachers = dict((k, v) for k, v in people.items() if 'SourceCode' in v.keys() and "F" in v['SourceCode'].split(','))
+
+	courses = {}
+	for name, student in students.items():
+		if 'Courses' in student.keys():
+			for course in student['Courses']:
+				if course not in courses.keys():
+					info = course[course.rfind('/') + 1:].split('-')
+
+					courses[course] = {'Students': [], 'Teacher': None}
+
+					courses[course]['FullString'] = course;
+					courses[course]['Name'] = course[course.index(' ') + 1:re.search(r'[*(]',course).start()].strip()
+					courses[course]['ClassCode'] = '-'.join(info[:-1])
+					courses[course]['SubjectCode'] = info[0]
+					courses[course]['CourseNumber'] = info[1]
+					courses[course]['Formats'] = list(filter(lambda x: x in string.ascii_letters, info[2]))
+					courses[course]['classId'] = info[len(info) - 1][2:]
+				courses[course]['Students'].append(name)
+	#Adds teachers to courses
+	for name, teacher in teachers.items():
+		if 'Courses' in teacher.keys():
+			for course in teacher['Courses']:
+				try:
+					courses[course]['Teacher'] = name
+				except KeyError:
+					pass
+
+	g = open(classdata_path, 'w')
+	g.write(json.dumps(courses, indent=4, sort_keys=True))
+	g.close()
+def getClassData():
+	f = open(classdata_path, 'r')
+	return json.loads(f.read())
+
