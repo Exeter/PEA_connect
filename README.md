@@ -12,7 +12,29 @@ The purpose of these tools is to make PEA data more accessible for student devel
 These tools organize and make public data more accessible for student developers; all of the information gathered by PEA-data-tools can be found on official Academy websites under ordinary usage.
 
 ##Currently implemented:
- - python module for easy retrieval of Exeter Connect user data. For now, check out the examples at `PEA/examples` and read module code to learn how to use the python module.
+###python module
+Currently facillitates retrieval of Exeter Connect user data. 
+Requires [suds](https://fedorahosted.org/suds/)
+
+
+Basic Example:
+```python
+from PEA import users
+
+input = raw_input("Username: ")
+user = users.byUsername(input)
+
+output = "Hello, " + user.get("FirstName") + " " + user.get("LastName")
+print(output)
+
+```
+
+
+
+
+Check out the examples at `PEA/examples` for more examples
+###javascript module
+
 
 #Goals:
  - api for python
@@ -22,7 +44,6 @@ These tools organize and make public data more accessible for student developers
  - authentication bindings
 
 #TODO
- - implement examples
  - change "update" methods in connect.py to get json from ecc.exeter.edu. Create "download" methods for actual scraping straight from the connect.exeter.edu
  - write python documentation
  - write browser/node javascript module for working with user data (note: create a git subfolder)
