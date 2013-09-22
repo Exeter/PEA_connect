@@ -45,6 +45,7 @@ Check out the examples at `PEA/examples` for more examples
  - authentication bindings
 
 #TODO
+ - Rename courses in data.jsons to classes
  - Write tests
 	 - Test update example
  - Simplify API
