@@ -18,15 +18,26 @@ Currently facillitates retrieval of Exeter Connect user data.
 Requires [suds](https://fedorahosted.org/suds/)
 
 
-Basic Example:
 ```python
 from PEA import users
 
 user = users().get("slee2")
-
 print("Hello, " + user.get("FirstName") + " " + user.get("LastName"))
-
 ```
+(TODO: Fix formatting)
+####PEA.users([<i>by</i>])
+Return a dict of user profiles.
+
+*by* specifies the type of key
+
+Valid key types: (TODO: POPULATE)
+
+####PEA.classes([<i>by</i>])
+Return a dict of class profiles.
+
+*by* specifies the type of key
+
+Valid key types: (TODO: POPULATE)
 
 
 
@@ -49,5 +60,3 @@ Check out the examples at `PEA/examples` for more examples
 	 - Phase out raw_user_info.json and basic_user_info.json
  - make basicinfo keys CamelCase
  - change "update" methods in connect.py to get json from ecc.exeter.edu. Create "download" methods for actual scraping straight from the connect.exeter.edu
- - write python documentation
- - Communicate with IT about this
