@@ -22,14 +22,11 @@ Basic Example:
 ```python
 from PEA import users
 
-input = raw_input("Username: ")
-user = users().get(input)
+user = users().get("slee2")
 
-output = "Hello, " + user.get("FirstName") + " " + user.get("LastName")
-print(output)
+print("Hello, " + user.get("FirstName") + " " + user.get("LastName"))
 
 ```
-
 
 
 
