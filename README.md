@@ -23,7 +23,7 @@ Basic Example:
 from PEA import users
 
 input = raw_input("Username: ")
-user = users.byUsername(input)
+user = users().get(input)
 
 output = "Hello, " + user.get("FirstName") + " " + user.get("LastName")
 print(output)

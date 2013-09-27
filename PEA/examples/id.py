@@ -1,32 +1,32 @@
-from .. import users
+from PEA import users
 import json
 
 def pprint(x):
 	print(json.dumps(x, indent=4, sort_keys=True))
 
 
+u = users(by="employeeID")
 def getEmailByEmployeeID(employeeid):
-	user = users.byEmployeeID(employeeid)
+	user = u.get(employeeid)
+	if not user:
+		raise Exception('user not found')
 	return user['WorkEmail']
 def getNameByEmployeeID(employeeid):
-	user = users.byEmployeeID(employeeid)
+	user = u.get(employeeid)
+	if not user:
+		raise Exception('user not found')
 	first = user['FirstName']
 	last = user['LastName']
 	return first + ' ' + last
 
-def verify(employeeid):
-	if not users.byEmployeeID(employeeid):
-		return False
-	return True
-
 def query():
-	employeeid = str(raw_input('EmployeeID: '))
-	if not verify(employeeid):
-		print("user not found")
-		query()
-		return
-	print(getNameByEmployeeID(employeeid))
-	print(getEmailByEmployeeID(employeeid))
+	try:
+		employeeid = str(raw_input('employeeID: '))
+		print(getNameByEmployeeID(employeeid))
+		print(getEmailByEmployeeID(employeeid))
+	except Exception:
+		print('user not found')
 
 if __name__ == '__main__':
-	query()
+	while True:
+		query()

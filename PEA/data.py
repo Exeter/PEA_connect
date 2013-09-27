@@ -1,4 +1,4 @@
-from . import connect
+from PEA import connect
 from getpass import getpass
 import sys
 import re
@@ -8,6 +8,7 @@ import json
 #Everything concerned about data generation/retrieval
 
 
+#TODO: clean
 uname = ""
 pword = ""
 
@@ -129,7 +130,7 @@ def updateClassData():
 					courses[course]['SubjectCode'] = info[0]
 					courses[course]['CourseNumber'] = info[1]
 					courses[course]['Formats'] = list(filter(lambda x: x in string.ascii_letters, info[2]))
-					courses[course]['classId'] = info[len(info) - 1][2:]
+					courses[course]['classID'] = info[len(info) - 1][2:]
 				courses[course]['Students'].append(name)
 	#Adds teachers to courses
 	for name, teacher in teachers.items():
