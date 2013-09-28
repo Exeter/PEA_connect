@@ -138,7 +138,7 @@ def updateClassData():
 					classes[c]['Formats'] = list(filter(lambda x: x in string.ascii_letters, info[2]))
 					classes[c]['ClassID'] = info[len(info) - 1][2:]
 				classes[c]['Students'].append(name)
-	#Adds teachers to courses
+	#Adds teachers to classes
 	for name, teacher in teachers.items():
 		if 'Classes' in teacher.keys():
 			for c in teacher['Classes']:
@@ -148,7 +148,7 @@ def updateClassData():
 					pass
 
 	g = open(classdata_path, 'w')
-	g.write(json.dumps(courses, indent=4, sort_keys=True))
+	g.write(json.dumps(classes, indent=4, sort_keys=True))
 	g.close()
 def getClassData():
 	f = open(classdata_path, 'r')
