@@ -78,6 +78,8 @@ def updateDetailedUserData():
 				k = x['Name']
 				if k == 'employeeID':
 					k = 'EmployeeID'
+				elif k == 'UserName':
+					k = 'Username'
 
 				values = x['Values']
 				if values =="":

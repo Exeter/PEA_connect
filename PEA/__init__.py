@@ -16,7 +16,7 @@ def _classes():
 	return classes
 def _users():
 	original = data.getDetailedUserData()
-	default_type = "UserName"
+	default_type = "Username"
 	other_key_types = ['EmployeeID', 'UserProfile_GUID']
 	def users(by=default_type):
 		if by == default_type:
