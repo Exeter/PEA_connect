@@ -80,6 +80,8 @@ def updateDetailedUserData():
 					k = 'EmployeeID'
 				elif k == 'UserName':
 					k = 'Username'
+				elif k == 'Courses':
+					k = 'Classes'
 
 				values = x['Values']
 				if values =="":
@@ -87,7 +89,7 @@ def updateDetailedUserData():
 				v = []
 				for value in values['ValueData']:
 					v.append(value['Value'])
-				if (len(v) == 1) and (k not in ['Organizations', 'Courses']):
+				if (len(v) == 1) and (k not in ['Organizations', 'Classes']):
 					v = v[0]
 				output[k] = v
 			return output
@@ -119,29 +121,29 @@ def updateClassData():
 	students = dict((k, v) for k, v in people.items() if 'SourceCode' in v.keys() and "ST" in v['SourceCode'].split(','))
 	teachers = dict((k, v) for k, v in people.items() if 'SourceCode' in v.keys() and "F" in v['SourceCode'].split(','))
 
-	courses = {}
+	classes = {}
 	for name, student in students.items():
-		if 'Courses' in student.keys():
-			for course in student['Courses']:
-				if course not in courses.keys():
-					info = course[course.rfind('/') + 1:].split('-')
+		if 'Classes' in student.keys():
+			for c in student['Classes']:
+				if c not in classes.keys():
+					info = c[c.rfind('/') + 1:].split('-')
 
-					courses[course] = {'Students': [], 'Teacher': None}
+					classes[c] = {'Students': [], 'Teacher': None}
 
-					courses[course]['FullString'] = course;
-					courses[course]['Name'] = course[course.index(' ') + 1:re.search(r'[*(]',course).start()].strip()
-					courses[course]['ClassCode'] = '-'.join(info[:-1])
-					courses[course]['SubjectCode'] = info[0]
-					courses[course]['CourseNumber'] = info[1]
-					courses[course]['Formats'] = list(filter(lambda x: x in string.ascii_letters, info[2]))
-					courses[course]['ClassID'] = info[len(info) - 1][2:]
-				courses[course]['Students'].append(name)
+					classes[c]['FullString'] = c;
+					classes[c]['Name'] = c[c.index(' ') + 1:re.search(r'[*(]',c).start()].strip()
+					classes[c]['ClassCode'] = '-'.join(info[:-1])
+					classes[c]['SubjectCode'] = info[0]
+					classes[c]['CourseNumber'] = info[1]
+					classes[c]['Formats'] = list(filter(lambda x: x in string.ascii_letters, info[2]))
+					classes[c]['ClassID'] = info[len(info) - 1][2:]
+				classes[c]['Students'].append(name)
 	#Adds teachers to courses
 	for name, teacher in teachers.items():
-		if 'Courses' in teacher.keys():
-			for course in teacher['Courses']:
+		if 'Classes' in teacher.keys():
+			for c in teacher['Classes']:
 				try:
-					courses[course]['Teacher'] = name
+					classes[c]['Teacher'] = name
 				except KeyError:
 					pass
 
