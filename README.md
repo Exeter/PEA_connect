@@ -69,10 +69,7 @@ Check out the examples at `PEA/examples` for more examples
  - authentication bindings
 
 #TODO
- - Rename courses in data.jsons to classes
- - Write tests
-	 - Test update example
  - Simplify API
-	 - Phase out raw_user_info.json and basic_user_info.json
- - make basicinfo keys CamelCase
+	 - Phase out raw_user_info.json
+ - camelcase basic_user_info.json
  - change "update" methods in connect.py to get json from ecc.exeter.edu. Create "download" methods for actual scraping straight from the connect.exeter.edu
