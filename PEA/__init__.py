@@ -4,12 +4,12 @@ from copy import deepcopy
 def _classes():
 	original = data.getClassData()
 	default_type = "FullString"
-	other_key_types = ['ClassCode', 'classID']
+	other_key_types = ['ClassCode', 'ClassID']
 	def classes(by=default_type):
 		if by == default_type:
 			return original
 		else:
-			if type not in other_key_types:
+			if by not in other_key_types:
 				raise Exception('Invalid key type')
 			return deepcopy(dict((v[by],v) for k,v in original.iteritems()))
 
@@ -17,7 +17,7 @@ def _classes():
 def _users():
 	original = data.getDetailedUserData()
 	default_type = "UserName"
-	other_key_types = ['employeeID', 'UserProfile_GUID']
+	other_key_types = ['EmployeeID', 'UserProfile_GUID']
 	def users(by=default_type):
 		if by == default_type:
 			return original

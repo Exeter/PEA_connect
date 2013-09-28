@@ -76,6 +76,8 @@ def updateDetailedUserData():
 				if x['Privacy'] == "Private":
 					continue
 				k = x['Name']
+				if k == 'employeeID':
+					k = 'EmployeeID'
 
 				values = x['Values']
 				if values =="":
@@ -130,7 +132,7 @@ def updateClassData():
 					courses[course]['SubjectCode'] = info[0]
 					courses[course]['CourseNumber'] = info[1]
 					courses[course]['Formats'] = list(filter(lambda x: x in string.ascii_letters, info[2]))
-					courses[course]['classID'] = info[len(info) - 1][2:]
+					courses[course]['ClassID'] = info[len(info) - 1][2:]
 				courses[course]['Students'].append(name)
 	#Adds teachers to courses
 	for name, teacher in teachers.items():
