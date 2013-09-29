@@ -6,11 +6,21 @@ from suds.sudsobject import asdict
 from getpass import getpass
 import json
 
+uname = ""
+pword = ""
+def _authenticate():
+	global uname, pword
+	if not uname:
+		print(':: Authentication required to access Exeter Connect')
+		uname = raw_input('Username: ') + '@exeter.edu'
+		pword = getpass()
 
-def getclient(url, username, password):
-	credentials = dict(username = username, password=password)
+
+def getclient(url):
+	print(':: Connecting to ' + url)
+	_authenticate()
+	credentials = dict(username = uname, password=pword)
 	t = HttpAuthenticated(**credentials);
-
 	return Client(url, transport=t)
 
 def to_dict(sudsobject):
