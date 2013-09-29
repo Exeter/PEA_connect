@@ -11,7 +11,7 @@ pword = ""
 def _authenticate():
 	global uname, pword
 	if not uname:
-		print(':: Authentication required to access Exeter Connect')
+		print(':: Authentication required to access Exeter Connect:')
 		uname = raw_input('Username: ') + '@exeter.edu'
 		pword = getpass()
 

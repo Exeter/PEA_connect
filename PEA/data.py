@@ -5,7 +5,6 @@ import string
 import json
 
 #Everything concerned about data generation/retrieval
-#ideal getBlahBlah(source="cache", cache=False )
 
 def _confirm(prompt):
 	ans = raw_input(prompt)
@@ -13,18 +12,19 @@ def _confirm(prompt):
 	if not ans in valid:
 		exit()
 
-def _getDataGenerator(path, sources):
-	def getData(source="cache", cache=False):
+def _getDataGenerator(path, get_data):
+	def getData(from_cache=True, to_cache=False):
 		output = {}
-		if source == "cache":
+		if from_cache:
 			try:
 				f = open(path,'r')
 				output = json.loads(f.read())
 			except:
-				raise Exception(path + " does not exist")
+				_confirm(":: " + path + " does not exist. Create? [Y] ")
+				output = getData(from_cache=False, to_cache=True)
 		else:
-			output = sources[source]()
-			if cache:
+			output = get_data()
+			if to_cache:
 				print(":: Caching " + path)
 				tocache = json.dumps(output, indent=4, sort_keys=True)
 
@@ -37,22 +37,19 @@ def _getDataGenerator(path, sources):
 # Raw User Data
 def _getRawUserData():
 	path = './data/raw_user_data.json'
-	sources = {}
-	def fromconnect():
+	def download():
 		print(":: Downloading raw user data")
 		UserGroup = connect.getclient('https://connect.exeter.edu/_vti_bin/usergroup.asmx?WSDL')
 		return connect.to_dict(UserGroup.service.GetAllUserCollectionFromWeb())
-	sources['connect'] = fromconnect
-	return _getDataGenerator(path, sources)
+	return _getDataGenerator(path, download)
 getRawUserData = _getRawUserData()
 
 # Basic User Data
 def _getBasicUserData():
 	path = './data/basic_user_data.json'
-	sources = {}
-	def fromconnect():
+	def generate():
 		print(":: Generating data basic user data")
-		raw = getRawUserData(source="connect")
+		raw = getRawUserData(from_cache=False)
 
 		output = {}
 		notpeople = ['spsearchservice', 'spsearchcontent', 'spsetup', 'spcachesuper', 'spreader']
@@ -74,20 +71,18 @@ def _getBasicUserData():
 
 			output[username] = u
 		return output
-	sources['connect'] = fromconnect
-	return _getDataGenerator(path, sources)
+	return _getDataGenerator(path, generate)
 getBasicUserData = _getBasicUserData()
 
 	
 # Detailed User Data
 def _getDetailedUserData():
 	path = './data/detailed_user_data.json'
-	sources = {}
-	def fromconnect():
-		basicinfo = getBasicUserData(source="connect")
+	def download():
+		basicinfo = getBasicUserData(from_cache=False)
 		output = {}
 
-		print(":: Downloading detailed user data...")
+		print(":: Downloading detailed user data")
 		UserProfileService = connect.getclient('https://connect.exeter.edu/student/_vti_bin/UserProfileService.asmx?WSDL')
 
 		def getProfile(user):
@@ -127,16 +122,14 @@ def _getDetailedUserData():
 				pass
 			counter += 1
 		return output
-	sources['connect'] = fromconnect
-	return _getDataGenerator(path, sources)
+	return _getDataGenerator(path, download)
 getDetailedUserData = _getDetailedUserData()
 
 # Class Data
 def _getClassData():
 	path = './data/class_data.json'
-	sources = {}
 	def generate():
-		print(":: Generating class data...")
+		print(":: Generating class data")
 		people = getDetailedUserData()
 		filterByCode = lambda s: dict((k, v) for k, v in people.items() if 'SourceCode' in v.keys() and s in v['SourceCode'].split(','))
 		students = filterByCode("ST")
@@ -168,6 +161,5 @@ def _getClassData():
 					except KeyError:
 						pass
 		return classes
-	sources['generate'] = generate
-	return _getDataGenerator(path, sources)
+	return _getDataGenerator(path, generate)
 getClassData = _getClassData()
