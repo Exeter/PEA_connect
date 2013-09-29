@@ -71,6 +71,7 @@ Check out the examples at `PEA/examples` for more examples
  - authentication bindings
 
 ##Todo:
+ - Update status printing in data.getClassData
  - Rename this repo PEA-connect-tools
  - Make separate PEA.js repository
  - Make PEA-data-tools website on ECC

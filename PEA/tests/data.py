@@ -12,12 +12,11 @@ def test_getDetailedUserData():
 	b = data.getDetailedUserData(source='connect', cache="True")
 	assert b
 
-#TODO: test this...
 def test_getClassData():
-	b = data.getClassData(source='generate')
+	b = data.getClassData(source='generate', cache="True")
 	assert b
 if __name__ == '__main__':
 	#test_getRawUserData()
 	#test_getBasicUserData()
-	test_getDetailedUserData()
-	#test_getClassData()
+	#test_getDetailedUserData()
+	test_getClassData()
