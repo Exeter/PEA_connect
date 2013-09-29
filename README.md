@@ -30,7 +30,7 @@ print("Hello " + user.get("FirstName") + " " + user.get("LastName") + "!")
 	```python
 	from PEA import users
 
-	byUsername = users()
+	byUsername = users()	#users(by="Username")
 	byID = users(by="EmployeeID")
 
 	a = byUsername.get('slee2')
@@ -48,7 +48,7 @@ print("Hello " + user.get("FirstName") + " " + user.get("LastName") + "!")
 	```python
 	from PEA import classes
 
-	byFullString = classes()
+	byFullString = classes()	#classes(by="FullString")
 	byClassCode = classes(by="ClassCode")
 	
 	a = byFullString.get("13/FA Selected Topics * (MAT-590-A)#/classes/mat-590-a-cs81877")
