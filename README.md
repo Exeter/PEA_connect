@@ -5,7 +5,7 @@ The purpose of these tools is to make PEA data more accessible for student devel
 
 These tools organize and make public data more accessible for student developers. All of the information gathered by PEA-data-tools can be found on official Academy websites under ordinary usage.
 
-##python module
+##Python module
 Facillitates retrieval of Exeter Connect user data. 
 Requires [suds](https://fedorahosted.org/suds/)
 
