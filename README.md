@@ -53,6 +53,8 @@ print("Hello, " + user.get("FirstName") + " " + user.get("LastName"))
 	b = byClassCode.get("mat-590-a")
 	assert a == b	#True
 	```
+	
+####PEA.data
 
 
 
@@ -69,10 +71,7 @@ Check out the examples at `PEA/examples` for more examples
  - authentication bindings
 
 #TODO
- - Rename courses in data.jsons to classes
- - Write tests
-	 - Test update example
- - Simplify API
-	 - Phase out raw_user_info.json and basic_user_info.json
- - make basicinfo keys CamelCase
- - change "update" methods in connect.py to get json from ecc.exeter.edu. Create "download" methods for actual scraping straight from the connect.exeter.edu
+ - Rename this repo PEA-connect-tools
+ - Make separate PEA.js repository
+ - Make PEA-data-tools website on ECC
+ - Implement fromecc methods for data retrieval
