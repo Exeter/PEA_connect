@@ -13,8 +13,10 @@ Here's a basic example:
 ```python
 from PEA import users
 
-user = users().get("slee2")
-print("Hello, " + user.get("FirstName") + " " + user.get("LastName"))
+print("Hello World!")
+print("Just kidding. What kind of name is World??")
+user = users().get(raw_input("Your username please? "))
+print("Hello " + user.get("FirstName") + " " + user.get("LastName") + "!")
 ```
 
 ####PEA.users([<i>by</i>])
