@@ -3,7 +3,7 @@ Tools for working with PEA data!
 
 The purpose of these tools is to make PEA data more accessible for student developers; to facilitate students in creating applications useful and relevant to the PEA community.
 
-These tools organize and make public data more accessible for student developers; all of the information gathered by PEA-data-tools can be found on official Academy websites under ordinary usage.
+These tools organize and make public data more accessible for student developers. All of the information gathered by PEA-data-tools can be found on official Academy websites under ordinary usage.
 
 ##python module
 Facillitates retrieval of Exeter Connect user data. 
@@ -71,6 +71,7 @@ Check out the examples at `PEA/examples` for more examples
  - authentication bindings
 
 ##Todo:
+ - Test download of data without data folder
  - Restructure
 	 - Rename this repo PEA-connect-tools
 	 - Make separate PEA.js repository

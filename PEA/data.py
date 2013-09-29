@@ -120,7 +120,7 @@ def _getDetailedUserData():
 		counter = 0
 		for username in basicinfo:
 			try:
-				print(":: Downloading profile of " + username + "\t\t\t|\t" + str(counter) + " out of " +  str(len(basicinfo)))
+				print(":: Downloading profile of " + username + (str(counter) + " out of " +  str(len(basicinfo))).rjust(40 - len(username)))
 				output[username] = getProfile(basicinfo[username])
 			except:
 				print(":: FAILED!")
