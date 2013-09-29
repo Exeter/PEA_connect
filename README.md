@@ -61,12 +61,15 @@ Check out the examples at `PEA/examples` for more examples
 ###javascript module
 
 
-#Goals:
+##Goals:
  - api for python
  - api for javascript
  - user data bindings
  - schedule/calendar bindings
  - authentication bindings
 
-#TODO
- - get internet, test for connect connectability
+##Todo:
+ - Rename this repo PEA-connect-tools
+ - Make separate PEA.js repository
+ - Make PEA-data-tools website on ECC
+ - Implement fromecc methods for data retrieval
