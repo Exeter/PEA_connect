@@ -1,6 +1,7 @@
 from .. import data
 import json
 #updates local copies of data
+#TODO: update to new data.py api
 
 def confirm(prompt):
 	ans = raw_input(prompt)
@@ -8,14 +9,10 @@ def confirm(prompt):
 	if not ans in valid:
 		exit()
 def updateAll():
-	print(':: updating raw user data...')
-	data.updateRawUserData()
-	print(':: updating basic user data...')
-	data.updateBasicUserData()
-	print(':: updating detailed user data...')
-	data.updateDetailedUserData()
-	print(':: updating class data...')
-	data.updateClassData()
+	print(':: updating user data...')
+	data.getDetailedUserData(source='connect')
+	print(':: generating class data...')
+	data.getClassData(source="generate", cache=True)
 
 	print(':: update complete!')
 
