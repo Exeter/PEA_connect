@@ -16,7 +16,7 @@ def test_getClassData():
 	b = data.getClassData(source='generate', cache="True")
 	assert b
 if __name__ == '__main__':
-	#test_getRawUserData()
-	#test_getBasicUserData()
-	#test_getDetailedUserData()
+	test_getRawUserData()
+	test_getBasicUserData()
+	test_getDetailedUserData()
 	test_getClassData()

@@ -136,6 +136,7 @@ def _getClassData():
 	path = './data/class_data.json'
 	sources = {}
 	def generate():
+		print(":: Generating class data...")
 		people = getDetailedUserData()
 		filterByCode = lambda s: dict((k, v) for k, v in people.items() if 'SourceCode' in v.keys() and s in v['SourceCode'].split(','))
 		students = filterByCode("ST")
@@ -166,10 +167,6 @@ def _getClassData():
 						classes[c]['Teacher'] = name
 					except KeyError:
 						pass
-
-		g = open(path, 'w+')
-		g.write(json.dumps(classes, indent=4, sort_keys=True))
-		g.close()
 		return classes
 	sources['generate'] = generate
 	return _getDataGenerator(path, sources)
