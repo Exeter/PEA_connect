@@ -55,8 +55,6 @@ print("Hello " + user.get("FirstName") + " " + user.get("LastName") + "!")
 	b = byClassCode.get("mat-590-a")
 	assert a == b	#True
 	```
-	
-####PEA.data
 
 
 
@@ -66,12 +64,12 @@ Check out the examples at `PEA/examples` for more examples
 
 
 ##Goals:
- - [x] api for python
-	 - [ ] user data bindings
- - [ ] api for javascript
-	 - [ ] user data bindings
-	 - [ ] schedule/calendar bindings
-	 - [ ] authentication bindings
+ - Python API
+	 - user data bindings
+ - Javascript API
+	 - user data bindings
+	 - schedule/calendar bindings
+	 - authentication bindings
 
 ##Todo:
  - Restructure
