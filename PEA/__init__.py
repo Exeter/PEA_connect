@@ -1,4 +1,5 @@
 from PEA import data
+import requests
 
 def _classes():
 	original = data.getClassData
@@ -28,3 +29,23 @@ def _users():
 classes = _classes()
 users = _users()
 
+
+def auth(uname, pword):
+	"""
+	Returns True if authentication succeeds
+	Return False if authentication fails
+	"""
+	def _webmail_auth(uname, pword):
+		"""
+		Uses webmail.exeter.edu basic authentication
+
+		Returns True if authentication succeeds
+		Return False if authentication fails
+		"""
+		url = "https://webmail.exeter.edu/exchweb/bin/auth/owaauth.dll"
+		payload = {"destination": "https://webmail.exeter.edu/exchange", "username": uname, "password":  pword, "SubmitCreds": "Log On"}
+		r = requests.post(url, data=payload)
+		if r.url == "https://webmail.exeter.edu/exchange/":
+			return True
+		return False
+	return _webmail_auth(uname,pword)

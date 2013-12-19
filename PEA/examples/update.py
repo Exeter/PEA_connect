@@ -9,9 +9,9 @@ def confirm(prompt):
 		exit()
 def updateAll():
 	print(':: updating user data...')
-	data.getDetailedUserData(source='connect', cache=True)
+	data.getDetailedUserData(from_cache=False, to_cache=True)
 	print(':: generating class data...')
-	data.getClassData(source="generate", cache=True)
+	data.getClassData(from_cache=False, to_cache=True)
 	print(':: update complete!')
 
 if __name__ == '__main__':
