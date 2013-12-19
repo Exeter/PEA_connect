@@ -74,5 +74,6 @@ Check out the examples at `PEA/examples` for more examples
 ##Todo:
  - Restructure
 	 - Rename this repo PEA-connect-tools
+	 - Or actually PEA-connect-python
 	 - Make separate PEA.js repository
  - Make PEA-data-tools website on ECC
