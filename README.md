@@ -16,7 +16,7 @@ print("You live in " + user.get("PEALivingGroup") + ".")	#prints your dorm
 print("Your PO Box number is " + user.get("POBox") + ".")	#prints your PO number
 ```
 
-[More examples](PEA_/examples/README.md)
+[More examples](examples/README.md)
 
 ##Installation
 Supports python 2 only.
@@ -65,6 +65,9 @@ _TODO_ write/design installation of actual module
 	b = byClassCode.get("mat-590-a")
 	assert a == b	#True
 	```
+##How does it work?
+[Here](EXPLORING.md)
+
 ##Todo:
  - Add to README how an actual user/class data looks like in JSON
  - Make PEA-data-tools website on ECC
