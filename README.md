@@ -1,29 +1,32 @@
-#PEA-data-tools
-Tools for working with PEA data!
+#PEA_connect
+PEA_connect facilitates retrieval of Exeter Connect user data.
 
-PEA-data-tools organize and make public data more accessible for student developers. All of the information gathered by PEA-data-tools can be found on official Academy websites under ordinary usage.
+All of the information gathered by PEA-data-tools can be found on official Academy websites under ordinary usage methods.
 
-[Examples](PEA/examples/README.md)
+[Examples](PEA_/examples/README.md)
 
-##Python module
-Facillitates retrieval of Exeter Connect user data. 
+#Easy?
+Supports python 2 only.
 Requires [suds](https://fedorahosted.org/suds/)
+```
+pip install suds
+```
 
 Here's a basic example:
 ```python
-from PEA import users
+import PEA_connect
 
-print("Hello World!")
-print("Just kidding. What kind of name is World??")
-user = users().get(raw_input("Your username please? "))
+users = PEA_connect.users()
+
+user = users.get(raw_input("Your username please? "))
 print("Hello " + user.get("FirstName") + " " + user.get("LastName") + "!")
 ```
 
-####PEA.users([<i>by</i>])
+####PEA_connect.users([<i>by</i>])
 
  - Returns a dict of all user profiles.
 
- - *by* specifies the type of key. *by* defaults to ```"Username"```
+ - *by* specifies the type of key. Given no arguments, *by* defaults to ```"Username"```
 
  - Valid key types: ```"Username"```, ```"EmployeeID"```, ```"UserProfile_GUID"```
  - Example usage:
@@ -38,7 +41,7 @@ print("Hello " + user.get("FirstName") + " " + user.get("LastName") + "!")
 	assert a == b	#True
 	```
 
-####PEA.classes([<i>by</i>])
+####PEA_connect.classes([<i>by</i>])
  - Returns a dict of all class profiles.
 
  - *by* specifies the type of key. *by* defaults to ```"FullString"```
@@ -55,25 +58,7 @@ print("Hello " + user.get("FirstName") + " " + user.get("LastName") + "!")
 	b = byClassCode.get("mat-590-a")
 	assert a == b	#True
 	```
-
-
-
-
-Check out the examples at `PEA/examples` for more examples
-###javascript module
-
-
-##Goals:
- - Python API
-	 - user data bindings
- - Javascript API
-	 - user data bindings
-	 - schedule/calendar bindings
-	 - authentication bindings
-
 ##Todo:
- - Restructure
-	 - Rename this repo PEA-connect-tools
-	 - Or actually PEA-connect-python
-	 - Make separate PEA.js repository
  - Make PEA-data-tools website on ECC
+ - Make changes to code that reflect README
+  - simplify to single file, get rid of unnecessary package structure
