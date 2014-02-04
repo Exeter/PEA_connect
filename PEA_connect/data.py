@@ -1,4 +1,4 @@
-from PEA import connect
+from PEA_connect import connect
 import sys
 import re
 import string

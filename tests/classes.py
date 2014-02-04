@@ -1,4 +1,4 @@
-from PEA import classes
+from PEA_connect import classes
 
 byFullString = classes()
 byClassCode = classes(by="ClassCode")

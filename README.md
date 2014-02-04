@@ -16,7 +16,7 @@ print("You live in " + user.get("PEALivingGroup") + ".")	#prints your dorm
 print("Your PO Box number is " + user.get("POBox") + ".")	#prints your PO number
 ```
 
-[More examples](examples/README.md)
+[More examples](examples/)
 
 ##Installation
 Supports python 2 only.
@@ -69,7 +69,6 @@ _TODO_ write/design installation of actual module
 [Here](EXPLORING.md)
 
 ##Todo:
+ - Redocument readme
  - Add to README how an actual user/class data looks like in JSON
- - Make PEA-data-tools website on ECC
- - Make changes to code that reflect README
-  - simplify to single file, get rid of unnecessary package structure
+ - fix tests/examples

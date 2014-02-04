@@ -1,4 +1,4 @@
-from PEA import data
+from PEA_connect import data
 def test_getRawUserData():
 	#a = data.getRawUserData()
 	b = data.getRawUserData(source="connect")

@@ -1,11 +1,11 @@
-from PEA import users
+from PEA_connect import users
 import json
 
 def pprint(x):
 	print(json.dumps(x, indent=4, sort_keys=True))
 
 
-u = users(by="employeeID")
+u = users(by="EmployeeID")
 def getEmailByEmployeeID(employeeid):
 	user = u.get(employeeid)
 	if not user:
@@ -21,7 +21,7 @@ def getNameByEmployeeID(employeeid):
 
 def query():
 	try:
-		employeeid = str(raw_input('employeeID: '))
+		employeeid = str(raw_input('EmployeeID: '))
 		print(getNameByEmployeeID(employeeid))
 		print(getEmailByEmployeeID(employeeid))
 	except Exception:

@@ -1,4 +1,4 @@
-from PEA import data
+from PEA_connect import data
 
 def _classes():
 	original = data.getClassData
