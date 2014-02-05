@@ -1,8 +1,5 @@
 from setuptools import setup
 
-requirements = [
-    'suds>=0.4'
-]
 
 setup(
     name='PEA_connect',
@@ -13,9 +10,4 @@ setup(
     author="Sean Lee",
     author_email="freshdried@gmail.com",
     packages=['PEA_connect'],
-    requires=requirements,
-    classifiers=[
-        "Development Status :: 4 - Beta",
-        "Intended Audience :: Developers",
-    ]
 )
