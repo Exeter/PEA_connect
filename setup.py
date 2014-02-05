@@ -1,7 +1,7 @@
 from setuptools import setup
 
 requirements = [
-    'soap>=0.4'
+    'suds>=0.4'
 ]
 
 setup(
