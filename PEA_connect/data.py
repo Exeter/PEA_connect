@@ -52,7 +52,7 @@ def _getBasicUserData():
 		raw = getRawUserData(from_cache=False)
 
 		output = {}
-		notpeople = ['spsearchservice', 'spsearchcontent', 'spsetup', 'spcachesuper', 'spreader']
+		notpeople = ['spsearchservice', 'spsearchcontent', 'spsetup', 'spcachesuper', 'spreader', 'spcachereader']
 		for user in raw['GetAllUserCollectionFromWeb']['Users']['User']:
 			u = {}
 			u['login'] = user['_LoginName']
