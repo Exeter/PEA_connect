@@ -1,6 +1,8 @@
 from PEA_connect import users
 import json
 
+#Repeatedly queries for ID numbers, and returns the appropriate info for that ID number
+
 def pprint(x):
 	print(json.dumps(x, indent=4, sort_keys=True))
 

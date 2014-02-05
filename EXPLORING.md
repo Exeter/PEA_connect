@@ -15,11 +15,4 @@ Upon login on connect.exeter.edu, your browser makes multiple SOAP calls to Conn
 ###Places to poke/use
  - <https://connect.exeter.edu/_vti_bin/userprofileservice.asmx>
  - <https://connect.exeter.edu/_vti_bin/usergroup.asmx>
- - <https://connect.exeter.edu/_vti_bin/Authentication.asmx>
  - <https://connect.exeter.edu/_vti_bin/search.asmx>
-
-#Calendar
-
-#Lionlinks
-
-#csserver.exeter.edu/schedule

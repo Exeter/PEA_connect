@@ -10,10 +10,10 @@ import PEA_connect
 
 users = PEA_connect.users()	#downloads data, or loads from a cache
 
-user = users.get(raw_input("Your username please: "))	#asks for your username
-print("Hello " + user.get("FirstName") + " " + user.get("LastName") + "!")	#prints your name
-print("You live in " + user.get("PEALivingGroup") + ".")	#prints your dorm
-print("Your PO Box number is " + user.get("POBox") + ".")	#prints your PO number
+me = users.get(raw_input("Your username please: "))	#asks for your username
+print("Hello " + me.get("FirstName") + " " + me.get("LastName") + "!")	#prints your name
+print("You live in " + me.get("PEALivingGroup") + ".")	#prints your dorm
+print("Your PO Box number is " + me.get("POBox") + ".")	#prints your PO number
 ```
 
 [More examples](examples/)
@@ -69,6 +69,5 @@ _TODO_ write/design installation of actual module
 [Here](EXPLORING.md)
 
 ##Todo:
- - Redocument readme
  - Add to README how an actual user/class data looks like in JSON
- - fix tests/examples
+ - Make into pip installable thing
