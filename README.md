@@ -25,7 +25,12 @@ Requires [suds](https://fedorahosted.org/suds/). Install it with:
 ```
 pip install suds
 ```
-_TODO_ write/design installation of actual module
+
+Install PEA_connect with
+```
+pip install git+git://github.com/Exeter/PEA_connect.git
+```
+
 
 ##Methods
 
@@ -70,4 +75,5 @@ _TODO_ write/design installation of actual module
 
 ##Todo:
  - Add to README how an actual user/class data looks like in JSON
- - Make into pip installable thing
+ - Fix no data directory problem
+ - Make Profile download to a cache that gets written every download
