@@ -13,7 +13,7 @@ setup(
     author="Sean Lee",
     author_email="freshdried@gmail.com",
     packages=['PEA_connect'],
-    install_requires=requirements,
+    requires=requirements,
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
