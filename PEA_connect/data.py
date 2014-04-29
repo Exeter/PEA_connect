@@ -36,7 +36,7 @@ def _getDataGenerator(path, get_data):
 
 # Raw User Data
 def _getRawUserData():
-	path = './data/raw_user_data.json'
+	path = './raw_user_data.json'
 	def download():
 		print(":: Downloading raw user data")
 		UserGroup = connect.getclient('https://connect.exeter.edu/_vti_bin/usergroup.asmx?WSDL')
@@ -46,7 +46,7 @@ getRawUserData = _getRawUserData()
 
 # Basic User Data
 def _getBasicUserData():
-	path = './data/basic_user_data.json'
+	path = './basic_user_data.json'
 	def generate():
 		print(":: Generating data basic user data")
 		raw = getRawUserData(from_cache=False)
@@ -77,7 +77,7 @@ getBasicUserData = _getBasicUserData()
 	
 # Detailed User Data
 def _getDetailedUserData():
-	path = './data/detailed_user_data.json'
+	path = './detailed_user_data.json'
 	def download():
 		basicinfo = getBasicUserData(from_cache=False)
 		output = {}
@@ -127,7 +127,7 @@ getDetailedUserData = _getDetailedUserData()
 
 # Class Data
 def _getClassData():
-	path = './data/class_data.json'
+	path = './class_data.json'
 	def generate():
 		print(":: Generating class data")
 		people = getDetailedUserData()
